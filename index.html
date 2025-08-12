@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ozone Travel and Tour | Premium Travel Experiences</title>
+    <meta name="description" content="Ozone Travel offers premium inbound and outbound tour packages, flight bookings, and car rentals with offices in the U.S. and Ethiopia.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7AC943',
+                        secondary: '#007844',
+                        accent: '#00B5E2',
+                        neutral: '#E8E8E8',
+                        dark: '#2F2F2F',
+                        light: '#F5F5F5',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-carousel {
+            position: relative;
+            height: 100vh;
+            min-height: 500px;
+            overflow: hidden;
+        }
+        
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .carousel-slide.active {
+            opacity: 1;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .carousel-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 2;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        
+        .carousel-dot.active {
+            background: white;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-link:hover {
+            color: #7AC943;
+        }
+        
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: #7AC943;
+            box-shadow: 0 0 0 3px rgba(122, 201, 67, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-video {
+                height: 70vh;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans bg-light text-dark">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center" href="index.html">
+                    <img src="https://res.cloudinary.com/ddnpxgsan/image/upload/v1754159909/Ozone_Logo_ms3crf.jpg" alt="Ozone Logo" class="h-12">
+                </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="nav-link font-medium hover:text-primary transition">Home</a>
+                <a href="#tours" class="nav-link font-medium hover:text-primary transition">Tours</a>
+                <a href="#flights" class="nav-link font-medium hover:text-primary transition">Flights</a>
+                <a href="#medical" class="nav-link font-medium hover:text-primary transition">Medical Tourism</a>
+                <a href="#about" class="nav-link font-medium hover:text-primary transition">About Us</a>
+                <a href="#contact" class="nav-link font-medium hover:text-primary transition">Contact</a>
+            </nav>
+            
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="tel:+17038557558" class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-full transition flex items-center">
+                    <i class="fas fa-phone mr-2"></i> Call Now
+                </a>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden text-dark focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-white w-full px-4 py-2 shadow-lg">
+            <div class="flex flex-col space-y-3">
+                <a href="#" class="nav-link font-medium hover:text-primary transition py-2 border-b">Home</a>
+                <a href="#tours" class="nav-link font-medium hover:text-primary transition py-2 border-b">Tours</a>
+                <a href="#flights" class="nav-link font-medium hover:text-primary transition py-2 border-b">Flights</a>
+                <a href="#medical" class="nav-link font-medium hover:text-primary transition py-2 border-b">Medical Tourism</a>
+                <a href="#about" class="nav-link font-medium hover:text-primary transition py-2 border-b">About Us</a>
+                <a href="#contact" class="nav-link font-medium hover:text-primary transition py-2 border-b">Contact</a>
+                <a href="tel:+17038557558" class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-full transition text-center">
+                    <i class="fas fa-phone mr-2"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-carousel">
+        <div class="carousel-slide active" style="background-image: url('https://res.cloudinary.com/ddnpxgsan/image/upload/v1752250152/Screen_Shot_2025-07-11_at_4.38.12_PM_ketrul.png')"></div>
+        <div class="carousel-slide" style="background-image: url('https://res.cloudinary.com/ddnpxgsan/image/upload/v1749415100/Lalibela_sima5o.jpg')"></div>
+        <div class="carousel-slide" style="background-image: url('https://res.cloudinary.com/ddnpxgsan/image/upload/v1749415488/Dubai_skyline_kx81xb.jpg')"></div>
+        <div class="carousel-slide" style="background-image: url('https://res.cloudinary.com/ddnpxgsan/image/upload/v1752250145/Screen_Shot_2025-07-11_at_4.40.13_PM_cbnxbj.png')"></div>
+        
+        <div class="hero-overlay"></div>
+        <div class="carousel-dots">
+            <div class="carousel-dot active" data-index="0"></div>
+            <div class="carousel-dot" data-index="1"></div>
+            <div class="carousel-dot" data-index="2"></div>
+            <div class="carousel-dot" data-index="3"></div>
+        </div>
+        <div class="relative z-10 flex items-center justify-center h-full px-4">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Discover Your Next Adventure</h1>
+                <p class="text-xl text-white mb-8">Premium travel experiences in the U.S., Turkiye, Ethiopia, and beyond. Loyal to serve you!.</p>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Tours Section -->
+    <section id="tours" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">Featured Tour Packages</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Ozone Travel & Tour curates unforgettable travel experiences across Turkiye, Ethiopia, the USA, and the world’s most sought-after destinations. Whether you seek cultural immersion, historical exploration, or adventure, our expertly designed itineraries offer something unique for every traveler.</p>
+            </div>
+            
+
+            <!-- Changed: Buttons in a row -->
+                <div class="flex flex-col md:flex-row justify-center items-center gap-6 mt-12">
+                    <a href="istanbul.html" class="inline-block bg-primary hover:bg-secondary text-white font-bold py-3 px-8 rounded-lg transition">
+                        View Istanbul Tour Packages
+                    </a>
+                    <a href="ethiopia.html" class="inline-block bg-primary hover:bg-secondary text-white font-bold py-3 px-8 rounded-lg transition">
+                        View Ethiopia Tour Packages
+                    </a>
+                </div>
+            
+            <!-- <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-primary hover:bg-secondary text-white font-bold py-3 px-8 rounded-lg transition">
+                    View Istanbul Tour Packages
+                </a>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-primary hover:bg-secondary text-white font-bold py-3 px-8 rounded-lg transition">
+                    View Ethiopia Tour Packages
+                </a> -->
+        </div>
+    </section>
+
+    <!-- Promo Banners Section -->
+    <section class="py-8 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Medical Tourism Banner -->
+                <div class="relative rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Medical Tourism in Turkiye and Dubai" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Medical Tourism</h3>
+                        <p class="mb-4">World-class healthcare in Turkiye and Dubai at affordable prices</p>
+                        <a href="#medical" class="inline-block bg-white hover:bg-neutral text-secondary font-semibold py-2 px-6 rounded-lg transition">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Car Rental Banner -->
+                <div class="relative rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" alt="Car Rental Services" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Car & Flight Rental Services</h3>
+                        <p class="mb-4">Flexible vehicle options for your travel needs</p>
+                        <a href="#flights" class="inline-block bg-white hover:bg-neutral text-secondary font-semibold py-2 px-6 rounded-lg transition">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flight Booking Section -->
+    <section id="flights" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">Flight & Car Rental Services</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Let us handle your travel logistics with our comprehensive services</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Flight Booking Form -->
+                <div class="bg-light rounded-xl p-8 shadow-md">
+                    <h3 class="text-2xl font-bold text-secondary mb-6">Flight Request</h3>
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Departure City</label>
+                                <input type="text" placeholder="e.g. Washington DC" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Destination</label>
+                                <input type="text" placeholder="e.g. Addis Ababa" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Departure Date</label>
+                                <input type="date" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Return Date</label>
+                                <input type="date" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Adults</label>
+                                <select class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5+</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Children</label>
+                                <select class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Class</label>
+                                <select class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                                    <option value="economy">Economy</option>
+                                    <option value="premium">Premium Economy</option>
+                                    <option value="business">Business</option>
+                                    <option value="first">First Class</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Special Requests</label>
+                            <textarea class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none" rows="3" placeholder="Any special requirements?"></textarea>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Your Name</label>
+                                <input type="text" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Email</label>
+                                <input type="email" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary hover:bg-secondary text-white font-bold py-3 px-6 rounded-lg transition">
+                            Request Flight Quote
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Car Rental Form -->
+                <div class="bg-light rounded-xl p-8 shadow-md" id="cars">
+                    <h3 class="text-2xl font-bold text-secondary mb-6">Car Rental Request</h3>
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Pick-up Location</label>
+                                <input type="text" placeholder="City or Airport" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Drop-off Location</label>
+                                <input type="text" placeholder="Same as pick-up or different" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Pick-up Date</label>
+                                <input type="date" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Drop-off Date</label>
+                                <input type="date" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Vehicle Type</label>
+                            <select class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                                <option value="">Select preferred vehicle type</option>
+                                <option value="economy">Economy</option>
+                                <option value="compact">Compact</option>
+                                <option value="midsize">Midsize</option>
+                                <option value="fullsize">Fullsize</option>
+                                <option value="suv">SUV</option>
+                                <option value="minivan">Minivan</option>
+                                <option value="luxury">Luxury</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Special Requirements</label>
+                            <textarea class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none" rows="3" placeholder="Child seats, GPS, etc."></textarea>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Your Name</label>
+                                <input type="text" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Email</label>
+                                <input type="email" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary hover:bg-secondary text-white font-bold py-3 px-6 rounded-lg transition">
+                            Request Car Rental
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medical Tourism Section -->
+    <section id="medical" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">Medical Tourism</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">World-class medical treatments combined with the opportunity to recover in beautiful destinations</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Turkiye Medical -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative h-64">
+                        <img src="https://res.cloudinary.com/ddnpxgsan/image/upload/v1749415487/istanbul_skyline_flse2p.jpg" alt="Medical Tourism in Turkiye" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-secondary mb-4">Medical Tourism in Turkiye</h3>
+                        <p class="text-gray-600 mb-4">Turkiye has become a global leader in medical tourism, offering high-quality healthcare services at competitive prices. Our packages include:</p>
+                        <ul class="list-disc pl-5 text-gray-600 mb-4 space-y-2">
+                            <li>Dental treatments and cosmetic dentistry</li>
+                            <li>Hair transplantation and plastic surgery</li>
+                            <li>Cardiology and cardiac surgery</li>
+                            <li>Orthopedic procedures and joint replacements</li>
+                            <li>Eye surgery and laser vision correction</li>
+                        </ul>
+                        <a href="#" class="inline-block bg-primary hover:bg-secondary text-white font-bold py-2 px-6 rounded-lg transition">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Dubai Medical -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative h-64">
+                        <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Medical Tourism in Dubai" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-secondary mb-4">Medical Tourism in Dubai</h3>
+                        <p class="text-gray-600 mb-4">Dubai offers state-of-the-art medical facilities with internationally accredited hospitals and specialists. Our packages include:</p>
+                        <ul class="list-disc pl-5 text-gray-600 mb-4 space-y-2">
+                            <li>Fertility treatments and IVF</li>
+                            <li>Bariatric surgery and weight loss programs</li>
+                            <li>Oncology and cancer treatments</li>
+                            <li>Neurology and neurosurgery</li>
+                            <li>Executive health check-ups</li>
+                        </ul>
+                        <a href="#" class="inline-block bg-primary hover:bg-secondary text-white font-bold py-2 px-6 rounded-lg transition">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonials -->
+            <div class="bg-white rounded-xl p-8 shadow-md">
+                <h3 class="text-2xl font-bold text-secondary mb-6 text-center">Patient Testimonials</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-light rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl mr-4">JD</div>
+                            <div>
+                                <h4 class="font-bold text-secondary">John D.</h4>
+                                <p class="text-gray-500 text-sm">Dental Implants in Istanbul</p>
+                            </div>
+                        </div>
+                        <div class="flex mb-2 text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600">"Ozone Travel arranged everything perfectly for my dental implants in Turkey. The clinic was world-class and I saved over 60% compared to US prices. The recovery period by the Bosphorus was an added bonus!"</p>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="bg-light rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl mr-4">SM</div>
+                            <div>
+                                <h4 class="font-bold text-secondary">Sarah M.</h4>
+                                <p class="text-gray-500 text-sm">Fertility Treatment in Dubai</p>
+                            </div>
+                        </div>
+                        <div class="flex mb-2 text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600">"After years of unsuccessful fertility treatments at home, we decided to try Dubai through Ozone Travel. The doctors were incredibly skilled and compassionate. We're now expecting twins! The whole experience was seamless."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">About Ozone Travel</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Bridging cultures and creating unforgettable travel experiences since 2010</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-secondary mb-4">Our Story</h3>
+                    <p class="text-gray-600 mb-4">Founded in 2010 in Addis Ababa, Ethiopia, and later opened a branch in Arlington, Virginia. Ozone Travel and Tour has grown to become a trusted name in international travel services.</p>
+                    <p class="text-gray-600 mb-4">We specialize in creating customized travel experiences that combine cultural immersion, adventure, and comfort. Our deep connections in both the U.S. and Ethiopia allow us to offer unique insights and access to destinations.</p>
+                    <p class="text-gray-600">Our team of travel experts brings together decades of experience in tour operations, flight bookings, and logistical coordination to ensure every journey is seamless.</p>
+                </div>
+                
+                <div class="relative rounded-xl overflow-hidden shadow-lg h-96">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ozone Travel Team" class="w-full h-full object-cover">
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Mission -->
+                <div class="bg-light rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3">Our Mission</h3>
+                    <p class="text-gray-600">Our mission is to be the leading and most reliable travel management company  USA and  Ethiopia, setting the benchmark for professionalism and dependability. We are committed to delivering exceptional value and timely travel solutions to our clients by offering the best available deals and opportunities.
+</p>
+                </div>
+                
+                <!-- Vision -->
+                <div class="bg-light rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3">Our Vision</h3>
+                    <p class="text-gray-600">Our vision is to excel in the travel industry—both domestically and internationally—by providing high-quality services with a strong emphasis on loyalty, integrity, and customer satisfaction.
+</p>
+                </div>
+                
+                <!-- Values -->
+                <div class="bg-light rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3">Our Values</h3>
+                    <p class="text-gray-600">Integrity, Cultural Respect, Customer Focus, Innovation, and Community Engagement guide everything we do.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">Contact Us</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">We're here to help you plan your perfect journey. Get in touch today!</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <div class="bg-white rounded-xl p-8 shadow-md mb-8">
+                        <h3 class="text-2xl font-bold text-secondary mb-6">Our Offices</h3>
+                        
+                        <!-- USA Office -->
+                        <div class="flex mb-8">
+                            <div class="w-12 h-12 bg-primary bg-opacity-20 rounded-full flex items-center justify-center text-primary mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-secondary mb-1">USA Office</h4>
+                                <p class="text-gray-600">901 South Highland St, Arlington, VA 22204</p>
+                                <p class="text-gray-600"><i class="fas fa-phone mr-2"></i> +1 703 855 7558</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Ethiopia Office -->
+                        <div class="flex">
+                            <div class="w-12 h-12 bg-primary bg-opacity-20 rounded-full flex items-center justify-center text-primary mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-secondary mb-1">Ethiopia Office</h4>
+                                <p class="text-gray-600">Addis Ababa, Ethiopia</p>
+                                <p class="text-gray-600"><i class="fas fa-phone mr-2"></i> +251 912 503240</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-8 shadow-md">
+                        <h3 class="text-2xl font-bold text-secondary mb-6">Contact Methods</h3>
+                        
+                        <div class="space-y-4">
+                            <a href="mailto:ozonetravel@outlook.com" class="flex items-center text-gray-600 hover:text-primary transition">
+                                <div class="w-10 h-10 bg-primary bg-opacity-20 rounded-full flex items-center justify-center text-primary mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <span>ozonetravel@outlook.com</span>
+                            </a>
+                            
+                            <a href="mailto:ozonetravelagent@gmail.com" class="flex items-center text-gray-600 hover:text-primary transition">
+                                <div class="w-10 h-10 bg-primary bg-opacity-20 rounded-full flex items-center justify-center text-primary mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <span>ozonetravelagent@gmail.com</span>
+                            </a>
+                            
+                            <a href="https://wa.me/17038557558" class="flex items-center text-gray-600 hover:text-primary transition">
+                                <div class="w-10 h-10 bg-primary bg-opacity-20 rounded-full flex items-center justify-center text-primary mr-4">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <span>Chat on WhatsApp</span>
+                            </a>
+                            
+                            <div class="flex space-x-4 pt-4">
+                                <a href="#" class="w-10 h-10 bg-primary bg-opacity-20 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-primary bg-opacity-20 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-primary bg-opacity-20 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-primary bg-opacity-20 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-white rounded-xl p-8 shadow-md">
+                    <h3 class="text-2xl font-bold text-secondary mb-6">Send Us a Message</h3>
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">First Name</label>
+                                <input type="text" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Last Name</label>
+                                <input type="text" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Email Address</label>
+                            <input type="email" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Subject</label>
+                            <select class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none">
+                                <option value="">Select a subject</option>
+                                <option value="tour">Tour Inquiry</option>
+                                <option value="flight">Flight Booking</option>
+                                <option value="car">Car Rental</option>
+                                <option value="medical">Medical Tourism</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Your Message</label>
+                            <textarea class="w-full form-input px-4 py-2 border rounded-lg focus:outline-none" rows="5"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary hover:bg-secondary text-white font-bold py-3 px-6 rounded-lg transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Map -->
+            <div class="mt-12 bg-white rounded-xl overflow-hidden shadow-md">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3107.150104036496!2d-77.086543924136!3d38.86397197163396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b1162b5d0a6d%3A0x2b5e5a3a3a5a5a5a!2s901%20S%20Highland%20St%2C%20Arlington%2C%20VA%2022204%2C%20USA!5e0!3m2!1sen!2set!4v1689876543210!5m2!1sen!2set" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-12 bg-secondary text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-2">Subscribe to Our Newsletter</h3>
+                    <p>Get travel inspiration, special offers, and updates straight to your inbox.</p>
+                </div>
+                
+                <div>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none text-dark">
+                        <button type="submit" class="bg-primary hover:bg-accent text-white font-bold px-6 py-3 rounded-r-lg transition">
+                            Subscribe
+                        </button>
+                    </form>
+                    <p class="text-sm mt-2 text-white text-opacity-80">We respect your privacy. Unsubscribe at any time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- About -->
+                <div>
+                    <h4 class="text-xl font-bold text-primary mb-4">Ozone Travel</h4>
+                    <p class="mb-4 text-gray-400">Providing exceptional travel experiences since 2010 with offices in the U.S. and Ethiopia.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-xl font-bold text-primary mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">Home</a></li>
+                        <li><a href="#tours" class="text-gray-400 hover:text-primary transition">Tour Packages</a></li>
+                        <li><a href="#flights" class="text-gray-400 hover:text-primary transition">Flight Booking</a></li>
+                        <li><a href="#medical" class="text-gray-400 hover:text-primary transition">Medical Tourism</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-primary transition">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-primary transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-xl font-bold text-primary mb-4">Contact Info</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mr-3 mt-1"></i>
+                            <span class="text-gray-400">901 South Highland St, Arlington, VA 22204</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-primary mr-3"></i>
+                            <span class="text-gray-400">+1 703 855 7558</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-primary mr-3"></i>
+                            <span class="text-gray-400">+251 912 503240</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-3"></i>
+                            <span class="text-gray-400">ozonetravel@outlook.com</span>
+                        </li>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-3"></i>
+                            <span class="text-gray-400">info@toursbyozone.com</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Business Hours -->
+                <div>
+                    <h4 class="text-xl font-bold text-primary mb-4">Business Hours</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex justify-between">
+                            <span>Mon - Fri</span>
+                            <span>9:00 AM - 6:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Saturday</span>
+                            <span>10:00 AM - 4:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sunday</span>
+                            <span>Closed</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="#" class="inline-block bg-primary hover:bg-secondary text-white font-bold py-2 px-6 rounded-lg transition">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">© 2025 Ozone Travel and Tour LLC. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-primary transition">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary hover:bg-secondary text-white rounded-full flex items-center justify-center shadow-lg transition opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Carousel functionality
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentIndex = 0;
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentIndex = index;
+        }
+        
+        // Auto-rotate slides
+        setInterval(() => {
+            let nextIndex = (currentIndex + 1) % slides.length;
+            showSlide(nextIndex);
+        }, 5000);
+        
+        // Dot navigation
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                showSlide(parseInt(dot.dataset.index));
+            });
+        });
+    </script>
+    <script>
+    // Utility to show/hide loader
+    function showLoader() {
+        document.getElementById('form-loader').style.display = 'flex';
+    }
+    function hideLoader() {
+        document.getElementById('form-loader').style.display = 'none';
+    }
+</script>
+<script>
+    // Flight Booking Form Submission with Validation and Data Mapping
+    document.addEventListener('DOMContentLoaded', function () {
+        const flightForm = document.querySelector('#flights form');
+        if (flightForm) {
+            flightForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                // Get all input/select/textarea fields
+                const fields = flightForm.querySelectorAll('input, select, textarea');
+                let valid = true;
+                fields.forEach(field => {
+                    if (
+                        field.type !== 'hidden' &&
+                        !field.disabled &&
+                        field.value.trim() === ''
+                    ) {
+                        valid = false;
+                        field.classList.add('border-red-500');
+                    } else {
+                        field.classList.remove('border-red-500');
+                    }
+                });
+
+                if (!valid) {
+                    alert('Please fill in all fields before submitting.');
+                    return;
+                }
+
+                // Map form fields to backend format
+                const [
+                    departureCity,
+                    destination,
+                    departureDate,
+                    returnDate,
+                    adults,
+                    children,
+                    classType,
+                    specialRequests,
+                    name,
+                    email,
+                    phone
+                ] = [
+                    fields[0].value.trim(),
+                    fields[1].value.trim(),
+                    fields[2].value.trim(),
+                    fields[3].value.trim(),
+                    fields[4].value.trim(),
+                    fields[5].value.trim(),
+                    fields[6].value.trim(),
+                    fields[7].value.trim(),
+                    fields[8].value.trim(),
+                    fields[9].value.trim(),
+                    fields[10].value.trim()
+                ];
+
+                const data = {
+                    name,
+                    email,
+                    phone,
+                    departureCity,
+                    destination,
+                    to: 'info@toursbyozone.com',
+                    departureDate,
+                    returnDate,
+                    adults: isNaN(parseInt(adults)) ? adults : parseInt(adults),
+                    children: isNaN(parseInt(children)) ? children : parseInt(children),
+                    classType,
+                    specialRequests
+                };
+
+                console.log('Submitting flight data:', data);
+                showLoader();
+                try {
+                    const response = await fetch('https://api.toursbyozone.com/email/flight-booking', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    hideLoader();
+                    if (response.ok) {
+                        console.log('Flight request submitted successfully', await response.json());
+                        alert('Your flight request has been submitted!');
+                        flightForm.reset();
+                    } else {
+                        alert('There was an error submitting your request.');
+                    }
+                } catch (error) {
+                    hideLoader();
+                    alert('Network error. Please try again later.');
+                }
+            });
+        }
+    });
+</script>
+<script>
+    // Car Rental Form Submission with Validation and Data Mapping
+    document.addEventListener('DOMContentLoaded', function () {
+        // Select the car rental form (second form in #flights section)
+        const carForm = document.querySelector('#cars form');
+        if (carForm) {
+            carForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                // Get all input/select/textarea fields
+                const fields = carForm.querySelectorAll('input, select, textarea');
+                let valid = true;
+                fields.forEach(field => {
+                    if (
+                        field.type !== 'hidden' &&
+                        !field.disabled &&
+                        field.value.trim() === ''
+                    ) {
+                        valid = false;
+                        field.classList.add('border-red-500');
+                    } else {
+                        field.classList.remove('border-red-500');
+                    }
+                });
+
+                if (!valid) {
+                    alert('Please fill in all fields before submitting.');
+                    return;
+                }
+
+                // Map form fields to backend format
+                const [
+                    pickupLocation,
+                    dropoffLocation,
+                    pickupDate,
+                    dropoffDate,
+                    vehicleType,
+                    specialRequirements,
+                    name,
+                    email,
+                    phone
+                ] = [
+                    fields[0].value.trim(),
+                    fields[1].value.trim(),
+                    fields[2].value.trim(),
+                    fields[3].value.trim(),
+                    fields[4].value.trim(),
+                    fields[5].value.trim(),
+                    fields[6].value.trim(),
+                    fields[7].value.trim(),
+                    fields[8].value.trim()
+                ];
+
+                const data = {
+                    name,
+                    email,
+                    phone,
+                    to: 'info@toursbyozone.com',
+                    pickupLocation,
+                    dropoffLocation,
+                    vehicleType,
+                    specialRequirements
+                };
+
+                console.log('Submitting car rental data:', data);   
+                showLoader();
+                try {
+                    const response = await fetch('https://api.toursbyozone.com/email/send-car-rental', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    hideLoader();
+                    if (response.ok) {
+                        alert('Your car rental request has been submitted!');
+                        carForm.reset();
+                    } else {
+                        alert('There was an error submitting your request.');
+                    }
+                } catch (error) {
+                    hideLoader();
+                    alert('Network error. Please try again later.');
+                }
+            });
+        }
+    });
+</script>
+<script>
+    // Contact Form Submission with Validation and Data Mapping
+    document.addEventListener('DOMContentLoaded', function () {
+        // Select the contact form (second form in #contact section)
+        const contactForm = document.querySelector('#contact form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                // Get all input/select/textarea fields
+                const fields = contactForm.querySelectorAll('input, select, textarea');
+                let valid = true;
+                fields.forEach(field => {
+                    if (
+                        field.type !== 'hidden' &&
+                        !field.disabled &&
+                        field.value.trim() === ''
+                    ) {
+                        valid = false;
+                        field.classList.add('border-red-500');
+                    } else {
+                        field.classList.remove('border-red-500');
+                    }
+                });
+
+                if (!valid) {
+                    alert('Please fill in all fields before submitting.');
+                    return;
+                }
+
+                // Map form fields to backend format
+                const [
+                    firstName,
+                    lastName,
+                    email,
+                    phone,
+                    subject,
+                    message
+                ] = [
+                    fields[0].value.trim(),
+                    fields[1].value.trim(),
+                    fields[2].value.trim(),
+                    fields[3].value.trim(),
+                    fields[4].value.trim(),
+                    fields[5].value.trim()
+                ];
+
+                const data = {
+                    name: firstName + ' ' + lastName,
+                    email,
+                    phone,
+                    to: 'info@toursbyozone.com',
+                    subject,
+                    message
+                };
+
+                console.log('Submitting contact form data:', data); 
+                showLoader();
+                try {
+                    const response = await fetch('https://api.toursbyozone.com/email/contact-us', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    hideLoader();
+                    if (response.ok) {
+                        alert('Your message has been sent!');
+                        contactForm.reset();
+                    } else {
+                        alert('There was an error sending your message.');
+                    }
+                } catch (error) {
+                    hideLoader();
+                    alert('Network error. Please try again later.');
+                }
+            });
+        }
+    });
+</script>
+
+    <!-- loader -->
+    <div id="form-loader" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(255,255,255,0.7); z-index:9999; align-items:center; justify-content:center;">
+        <div class="flex flex-col items-center">
+            <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-primary border-solid mb-4"></div>
+            <span class="text-secondary font-bold text-lg">Submitting...</span>
+        </div>
+    </div>
+</body>
+</html>

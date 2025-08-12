@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unknown Error - GoDaddy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1baa4b 0%, #15a347 50%, #0d8a3a 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .error-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 60px 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .error-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            background: #ff6900;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .error-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .error-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .error-description {
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            min-width: 180px;
+        }
+
+        .btn-primary {
+            background-color: #1baa4b;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #15a347;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(27, 170, 75, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #1baa4b;
+            border: 2px solid #1baa4b;
+        }
+
+        .btn-secondary:hover {
+            background-color: #1baa4b;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .error-card {
+                padding: 40px 30px;
+                margin: 20px;
+            }
+
+            .logo {
+                font-size: 28px;
+            }
+
+            .error-title {
+                font-size: 24px;
+            }
+
+            .error-subtitle {
+                font-size: 16px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">GoDaddy</a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="error-card">
+            <div class="error-icon">!</div>
+            <h1 class="error-title">Unknown Error</h1>
+            <h2 class="error-subtitle">Something went wrong</h2>
+            <p class="error-description">
+                We're experiencing an unexpected issue and our team has been notified. 
+                Please try again in a few moments or contact our support team if the problem persists.
+            </p>
+            <div class="action-buttons">
+                <a href="#" class="btn btn-primary" onclick="location.reload()">Try Again</a>
+                <a href="#" class="btn btn-secondary">Contact Support</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 GoDaddy Operating Company, LLC. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Help Center</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate the error icon on load
+            const errorIcon = document.querySelector('.error-icon');
+            errorIcon.style.transform = 'scale(0)';
+            errorIcon.style.opacity = '0';
+            
+            setTimeout(() => {
+                errorIcon.style.transition = 'all 0.5s ease-out';
+                errorIcon.style.transform = 'scale(1)';
+                errorIcon.style.opacity = '1';
+            }, 200);
+
+            // Add click handlers for buttons
+            document.querySelector('.btn-secondary').addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('https://www.godaddy.com/en/help/contact-us');
+            });
+        });
+    </script>
+</body>
+</html>

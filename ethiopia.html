@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Ethiopia Tours – Explore Turkey with Ozone</title>
+    <meta name="description" content="Ozone Travel offers premium private Ethiopia tours ranging from 2 to 9 days with expert guides, luxury accommodations, and unforgettable experiences.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7AC943',
+                        secondary: '#007844',
+                        accent: '#00B5E2',
+                        neutral: '#E8E8E8',
+                        dark: '#2F2F2F',
+                        light: '#F5F5F5',
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "url('https://images.unsplash.com/photo-1527838832700-5059252407fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1998&q=80')",
+                        'two-days': "url('https://images.unsplash.com/photo-1529264978831-4f66316e4c3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
+                        'three-days': "url('https://images.unsplash.com/photo-1524235325750-4507e53a0f54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80')",
+                        'four-days': "url('https://images.unsplash.com/photo-1520967824495-b529aeba26df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
+                        'five-days': "url('https://images.unsplash.com/photo-1520967824495-b529aeba26df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .package-card {
+            transition: all 0.3s ease;
+            perspective: 1000px;
+        }
+        
+        .package-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .package-card:hover .package-card-inner {
+            transform: rotateY(5deg) scale(1.02);
+        }
+        
+        .package-card-front, .package-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        
+        .package-card-back {
+            transform: rotateY(180deg);
+        }
+        
+        .nav-link:hover {
+            color: #7AC943;
+        }
+        
+        .mobile-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(122, 201, 67, 0.2);
+        }
+        
+        .itinerary-item::before {
+            content: "✓";
+            color: #7AC943;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+    </style>
+</head>
+<body class="font-sans bg-light text-dark">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                    <img src="https://res.cloudinary.com/ddnpxgsan/image/upload/v1754159909/Ozone_Logo_ms3crf.jpg" alt="Ozone Logo" class="h-12">
+                </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link font-medium hover:text-primary transition">Home</a>
+                <a href="#tours" class="nav-link font-medium hover:text-primary transition">Tours</a>
+                <a href="index.html#flights" class="nav-link font-medium hover:text-primary transition">Flights</a>
+                <a href="index.html#medical" class="nav-link font-medium hover:text-primary transition">Medical Tourism</a>
+                <a href="#about" class="nav-link font-medium hover:text-primary transition">About Us</a>
+                <a href="#contact" class="nav-link font-medium hover:text-primary transition">Contact</a>
+            </nav>
+            
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="tel:+17038557558" class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-full transition flex items-center">
+                    <i class="fas fa-phone mr-2"></i> Call Now
+                </a>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden text-dark focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white w-full px-4 shadow-lg">
+            <div class="flex flex-col space-y-3 py-3">
+                <a href="#" class="nav-link font-medium hover:text-primary transition py-2 border-b">Home</a>
+                <a href="#tours" class="nav-link font-medium hover:text-primary transition py-2 border-b">Tours</a>
+                <a href="#flights" class="nav-link font-medium hover:text-primary transition py-2 border-b">Flights</a>
+                <a href="#medical" class="nav-link font-medium hover:text-primary transition py-2 border-b">Medical Tourism</a>
+                <a href="#about" class="nav-link font-medium hover:text-primary transition py-2 border-b">About Us</a>
+                <a href="#contact" class="nav-link font-medium hover:text-primary transition py-2 border-b">Contact</a>
+                <a href="tel:+17038557558" class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-full transition text-center">
+                    <i class="fas fa-phone mr-2"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-cover bg-center h-96 md:h-screen" style="background-image: url('https://res.cloudinary.com/ddnpxgsan/image/upload/v1754499051/WhatsApp_Image_2025-08-05_at_7.15.05_PM_dyxek2.jpg')">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="container mx-auto px-4 h-full flex items-center relative z-10">
+            <div class="max-w-2xl text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Private Ethiopia Tours</h1>
+                <p class="text-xl md:text-2xl mb-8">Explore Ethiopia with Ozone Travel - Unforgettable Experiences Await</p>
+                <a href="#tours" class="bg-primary hover:bg-secondary text-white px-8 py-3 rounded-full text-lg font-medium transition inline-block">
+                    Explore Tours
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">Discover the Magic of Ethiopia</h2>
+                <p class="text-lg md:text-xl mb-8 text-gray-700">
+                    Ozone offers immersive private Ethiopia tours ranging from 1 to 9 days. 
+                    Whether you're short on time or seeking a detailed journey, our expert-led tours include transportation, 
+                    hotels, guided sightseeing, and cultural immersion.
+                </p>
+                <div class="flex flex-wrap justify-center gap-6 mt-10">
+                    <div class="feature-icon">
+                        <i class="fas fa-hotel text-primary text-2xl"></i>
+                    </div>
+                    <div class="feature-icon">
+                        <i class="fas fa-car text-primary text-2xl"></i>
+                    </div>
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt text-primary text-2xl"></i>
+                    </div>
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils text-primary text-2xl"></i>
+                    </div>
+                    <div class="feature-icon">
+                        <i class="fas fa-language text-primary text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tours Section -->
+    <section id="tours" class="py-16 bg-neutral">
+        <div class="container mx-auto px-5">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-secondary">Our Ethiopia Tour Packages</h2>
+            
+            <!-- 1 Day Tour -->
+            <div class="flex flex-col lg:flex-row gap-8 mb-16 items-center">
+                <div class="lg:w-1/2">
+                    <div class="package-card rounded-xl overflow-hidden shadow-xl h-96 w-full">
+                        <div class="package-card-inner h-full">
+                            <div class="package-card-front h-full bg-cover bg-center" style="background-image: url('https://res.cloudinary.com/ddnpxgsan/image/upload/v1754499051/WhatsApp_Image_2025-08-05_at_7.15.05_PM_dyxek2.jpg')">
+                                <div class="h-full bg-gradient-to-t from-black to-transparent flex items-end p-6">
+                                    <div>
+                                        <h3 class="text-3xl font-bold text-white">1 Day</h3>
+                                        <p class="text-xl text-white">Ethiopia Essentials Tour</p>
+                                        <!-- <p class="text-primary font-bold mt-2">From $299 per person</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 text-secondary">1 Day Addis Ababa Tour</h3>
+                    <p class="text-gray-700 mb-6">
+                        Experience Ethiopia's capital in a single enriching day. Take in panoramic views from Entoto Hills, visit the National Museum to meet Lucy, explore historic cathedrals and vibrant markets, and enjoy an authentic Ethiopian coffee ceremony.
+                    </p>
+                    <h4 class="text-xl font-semibold mb-3 text-primary">Itinerary Highlights:</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="itinerary-item pl-4">Entoto Hills & Holy Trinity Cathedra</li>
+                        <li class="itinerary-item pl-4">National Museum & Unity Park</li>
+                        <li class="itinerary-item pl-4">Merkato Market</li>
+                        <li class="itinerary-item pl-4">Coffee Ceremony.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full transition">
+                            Book Now
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3 Days Tour -->
+            <div class="flex flex-col lg:flex-row-reverse gap-8 mb-16 items-center">
+                <div class="lg:w-1/2">
+                    <div class="package-card rounded-xl overflow-hidden shadow-xl h-96 w-full">
+                        <div class="package-card-inner h-full">
+                            <div class="package-card-front h-full bg-cover bg-center" style="background-image: url('https://res.cloudinary.com/ddnpxgsan/image/upload/v1754499051/WhatsApp_Image_2025-08-05_at_7.15.05_PM_dyxek2.jpg')">
+                                <div class="h-full bg-gradient-to-t from-black to-transparent flex items-end p-6">
+                                    <div>
+                                        <h3 class="text-3xl font-bold text-white">3 Days</h3>
+                                        <p class="text-xl text-white">Eastern Ethiopia and Harar Tour</p>
+                                        <!-- <p class="text-primary font-bold mt-2">From $449 per person</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 text-secondary">3 Days Eastern Ethiopia and Harar Tour</h3>
+                    <p class="text-gray-700 mb-6">
+                        Explore the Islamic heritage and poetic history of Harar. Visit the 16th-century walled city, bustling markets, and historical museums. Watch the famous "Hyena Man" feeding ritual. Conclude with a visit to the National Museum in Addis and a farewell cultural dinner.
+                    </p>
+                    <h4 class="text-xl font-semibold mb-3 text-primary">Itinerary Highlights:</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="itinerary-item pl-4">Harar Jugol & Islamic Markets</li>
+                        <li class="itinerary-item pl-4">Hyena Feeding Show</li>
+                        <li class="itinerary-item pl-4">Arthur Rimbaud House</li>
+                        <li class="itinerary-item pl-4">National Museum</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full transition">
+                            Book Now
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 6 Days Tour -->
+            <div class="flex flex-col lg:flex-row gap-8 mb-16 items-center">
+                <div class="lg:w-1/2">
+                    <div class="package-card rounded-xl overflow-hidden shadow-xl h-96 w-full">
+                        <div class="package-card-inner h-full">
+                            <div class="package-card-front h-full bg-cover bg-center" style="background-image: url('https://res.cloudinary.com/ddnpxgsan/image/upload/v1754499056/WhatsApp_Image_2025-08-05_at_7.15.06_PM_spwdli.jpg')">
+                                <div class="h-full bg-gradient-to-t from-black to-transparent flex items-end p-6">
+                                    <div>
+                                        <h3 class="text-3xl font-bold text-white">4 Days</h3>
+                                        <p class="text-xl text-white">Northern Historical Tours</p>
+                                        <!-- <p class="text-primary font-bold mt-2">From $599 per person</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 text-secondary">6 Days Northern Historical Tour</h3>
+                    <p class="text-gray-700 mb-6">
+                        Uncover the cradle of ancient empires. Start in Addis Ababa before flying to Lalibela to explore the magnificent rock-hewn churches. Continue to Axum to witness towering obelisks and the legendary Queen of Sheba's palace. Discover Yeha Temple and Debre Damo Monastery. Conclude with a scenic drive through Gheralta Mountains and explore the cliff-side Abune Yemata Church.
+                    </p>
+                    <h4 class="text-xl font-semibold mb-3 text-primary">Itinerary Highlights:</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="itinerary-item pl-4">Lalibela Churches</li>
+                        <li class="itinerary-item pl-4">Axum Obelisks & Queen of Sheba Relics</li>
+                        <li class="itinerary-item pl-4">Yeha Temple & Debre Damo</li>
+                        <li class="itinerary-item pl-4">Abune Yemata Hike</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full transition">
+                            Book Now
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 7 Days Tour -->
+            <div class="flex flex-col lg:flex-row-reverse gap-8 items-center">
+                <div class="lg:w-1/2">
+                    <div class="package-card rounded-xl overflow-hidden shadow-xl h-96 w-full">
+                        <div class="package-card-inner h-full">
+                            <div class="package-card-front h-full bg-cover bg-center" style="background-image: url('https://res.cloudinary.com/ddnpxgsan/image/upload/v1754499051/WhatsApp_Image_2025-08-05_at_7.15.07_PM_1_wcmfh1.jpg')">
+                                <div class="h-full bg-gradient-to-t from-black to-transparent flex items-end p-6">
+                                    <div>
+                                        <h3 class="text-3xl font-bold text-white">5 Days</h3>
+                                        <p class="text-xl text-white">Western Ethiopia Nature & Coffee Trail</p>
+                                        <!-- <p class="text-primary font-bold mt-2">From $749 per person</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 text-secondary">7 Days Western Ethiopia Nature & Coffee Trail</h3>
+                    <p class="text-gray-700 mb-6">
+                        Venture into Ethiopia's lush rainforest and coffee heartland. Begin in Addis Ababa with a city tour. Trek or horseback ride around Wenchi Crater Lake, visit Jimma and the palace of Ras Abba Jifar II, and explore the wild Bonga region. Discover wetlands, waterfalls, honey production, and meet spiritual leaders of the Kaffa region.
+                    </p>
+                    <h4 class="text-xl font-semibold mb-3 text-primary">Itinerary Highlights:</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="itinerary-item pl-4">Wenchi Crater Lake</li>
+                        <li class="itinerary-item pl-4">Jimma Royal Palace</li>
+                        <li class="itinerary-item pl-4">Kaffa Biosphere & Barta Waterfall</li>
+                        <li class="itinerary-item pl-4">Traditional Honey Farms</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full transition">
+                            Book Now
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+  
+  <!-- 9 Days Tour -->
+            <div class="flex flex-col lg:flex-row gap-8 mb-16 items-center">
+                <div class="lg:w-1/2">
+                    <div class="package-card rounded-xl overflow-hidden shadow-xl h-96 w-full">
+                        <div class="package-card-inner h-full">
+                            <div class="package-card-front h-full bg-cover bg-center" style="background-image: url('https://res.cloudinary.com/ddnpxgsan/image/upload/v1754499052/WhatsApp_Image_2025-08-05_at_7.15.06_PM_1_djqqok.jpg')">
+                                <div class="h-full bg-gradient-to-t from-black to-transparent flex items-end p-6">
+                                    <div>
+                                        <h3 class="text-3xl font-bold text-white">9 Days</h3>
+                                        <p class="text-xl text-white">Southern Ethiopia Cultural Expedition</p>
+                                        <!-- <p class="text-primary font-bold mt-2">From $599 per person</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 text-secondary">9 Southern Ethiopia Cultural Expedition</h3>
+                    <p class="text-gray-700 mb-6">
+                        Discover Ethiopia's most remote and culturally rich regions. Begin in Addis Ababa with visits to museums, markets, and mountain viewpoints. Journey through the Omo Valley to meet unique tribes including the Hamar, Dassanech, and Mursi. Witness the bull-jumping ceremony and explore the Kara tribe's river lifestyle. Conclude with an awe-inspiring adventure to the Danakil Depression, Lake Afdera, and the glowing lava lake of Erta Ale.
+                    </p>
+                    <h4 class="text-xl font-semibold mb-3 text-primary">Itinerary Highlights:</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="itinerary-item pl-4">Addis City Tour</li>
+                        <li class="itinerary-item pl-4">Omo Valley Tribes</li>
+                        <li class="itinerary-item pl-4">Bull Jumping & Mago Park</li>
+                        <li class="itinerary-item pl-4">Danakil Depression, Erta Ale & Dallol</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full transition">
+                            Book Now
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">What's Included in All Our Tours</h2>
+                <p class="text-lg text-gray-700">
+                    ✈️ All tours include airport transfers, 4-5 star accommodations, and English-speaking guides.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-neutral p-6 rounded-xl text-center">
+                    <div class="feature-icon mx-auto mb-4">
+                        <i class="fas fa-hotel text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-secondary">Luxury Accommodation</h3>
+                    <p class="text-gray-700">4-5 star hotels in central locations with breakfast included</p>
+                </div>
+                
+                <div class="bg-neutral p-6 rounded-xl text-center">
+                    <div class="feature-icon mx-auto mb-4">
+                        <i class="fas fa-car text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-secondary">Private Transfers</h3>
+                    <p class="text-gray-700">Comfortable private vehicles with professional drivers</p>
+                </div>
+                
+                <div class="bg-neutral p-6 rounded-xl text-center">
+                    <div class="feature-icon mx-auto mb-4">
+                        <i class="fas fa-user-tie text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-secondary">Expert Guides</h3>
+                    <p class="text-gray-700">Licensed, English-speaking guides with deep local knowledge</p>
+                </div>
+                
+                <div class="bg-neutral p-6 rounded-xl text-center">
+                    <div class="feature-icon mx-auto mb-4">
+                        <i class="fas fa-utensils text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-secondary">Dining Experiences</h3>
+                    <p class="text-gray-700">Recommendations and reservations at top local restaurants</p>
+                </div>
+                
+                <div class="bg-neutral p-6 rounded-xl text-center">
+                    <div class="feature-icon mx-auto mb-4">
+                        <i class="fas fa-ticket-alt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-secondary">Entrance Fees</h3>
+                    <p class="text-gray-700">All museum and attraction tickets included in the price</p>
+                </div>
+                
+                <div class="bg-neutral p-6 rounded-xl text-center">
+                    <div class="feature-icon mx-auto mb-4">
+                        <i class="fas fa-headset text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-secondary">24/7 Support</h3>
+                    <p class="text-gray-700">Dedicated support throughout your entire journey</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-secondary to-primary">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Explore Ethiopia?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Contact us today to customize your perfect Ethiopian experience.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="tel:+17038557558" class="bg-white hover:bg-neutral text-secondary px-8 py-3 rounded-full text-lg font-medium transition inline-block">
+                    <i class="fas fa-phone mr-2"></i> Call Now
+                </a>
+                <a href="mailto:Info@toursbyozone.com" class="border-2 border-white hover:bg-white hover:text-secondary text-white px-8 py-3 rounded-full text-lg font-medium transition inline-block">
+                    <i class="fas fa-envelope mr-2"></i> Email Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-secondary">Contact Us</h2>
+                <p class="text-lg text-center text-gray-700 mb-12">
+                    Have questions or ready to book? Send us a message and we'll get back to you within 24 hours.
+                </p>
+                
+                <form class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                        <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent form-input" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent form-input" placeholder="Info@toursbyozone.com">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                        <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent form-input" placeholder="+1 (___) ___-____">
+                    </div>
+                    <div>
+                        <label for="tour" class="block text-gray-700 font-medium mb-2">Tour Package</label>
+                        <select id="tour" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent form-input">
+                            <option value="">Select a tour package</option>
+                            <option value="1-day">1 Day Addis Ababa  Tour</option>
+                            <option value="3-days">3 Days Eastern Ethiopia and Harar Tour</option>
+                            <option value="6-days">6 Days Northern Ethiopia Historical Tour</option>
+                            <option value="7-days">7 Days Western Ethiopia Nature & Coffee Trail</option>
+                            <option value="9-days">9 Days Southern Ethiopia Cultural Expedition</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent form-input" placeholder="Tell us about your travel plans..."></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <button type="submit" class="bg-primary hover:bg-secondary text-white px-8 py-3 rounded-full text-lg font-medium transition w-full md:w-auto">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- About -->
+                <div>
+                    <h4 class="text-xl font-bold text-primary mb-4">Ozone Travel</h4>
+                    <p class="mb-4 text-gray-400">Providing exceptional travel experiences since 2010 with offices in the U.S. and Ethiopia.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-primary transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-xl font-bold text-primary mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">Home</a></li>
+                        <li><a href="#tours" class="text-gray-400 hover:text-primary transition">Tour Packages</a></li>
+                        <li><a href="#flights" class="text-gray-400 hover:text-primary transition">Flight Booking</a></li>
+                        <li><a href="#medical" class="text-gray-400 hover:text-primary transition">Medical Tourism</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-primary transition">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-primary transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-xl font-bold text-primary mb-4">Contact Info</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mr-3 mt-1"></i>
+                            <span class="text-gray-400">901 South Highland St, Arlington, VA 22204</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-primary mr-3"></i>
+                            <span class="text-gray-400">+1 703 855 7558</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-primary mr-3"></i>
+                            <span class="text-gray-400">+251 912 503240</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-3"></i>
+                            <span class="text-gray-400">ozonetravel@outlook.com</span>
+                        </li>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-3"></i>
+                            <span class="text-gray-400">info@toursbyozone.com</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Business Hours -->
+                <div>
+                    <h4 class="text-xl font-bold text-primary mb-4">Business Hours</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex justify-between">
+                            <span>Mon - Fri</span>
+                            <span>9:00 AM - 6:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Saturday</span>
+                            <span>10:00 AM - 4:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sunday</span>
+                            <span>Closed</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="#" class="inline-block bg-primary hover:bg-secondary text-white font-bold py-2 px-6 rounded-lg transition">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">© 2025 Ozone Travel and Tour LLC. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-primary transition">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary hover:bg-secondary text-white rounded-full flex items-center justify-center shadow-lg transition opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Carousel functionality
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentIndex = 0;
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentIndex = index;
+        }
+        
+        // Auto-rotate slides
+        setInterval(() => {
+            let nextIndex = (currentIndex + 1) % slides.length;
+            showSlide(nextIndex);
+        }, 5000);
+        
+        // Dot navigation
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                showSlide(parseInt(dot.dataset.index));
+            });
+        });
+    </script>
+</html>
