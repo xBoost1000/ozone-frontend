@@ -1,0 +1,181 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <button  class="flex items-center text-blue-600 hover:text-blue-800 transition-colors">
+                    <a href="index.html#tours" class="flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back Home
+                    </a>
+                </button>
+                <h1 class="text-2xl font-bold text-gray-900">Destination Details</h1>
+                <div></div> <!-- Spacer for flex layout -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Loading State -->
+        <div id="loading" class="text-center py-12">
+            <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+            <p class="text-gray-500 mt-2">Loading destination details...</p>
+        </div>
+
+        <!-- Destination Content -->
+        <div id="destination-content" class="hidden">
+            <!-- Hero Image Section -->
+            <div class="relative h-96 rounded-lg overflow-hidden mb-8 shadow-lg">
+                <img id="hero-image" src="" alt="" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div class="absolute bottom-6 left-6">
+                    <span id="country-badge" class="inline-block bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm mb-2"></span>
+                    <h1 id="destination-title" class="text-4xl font-bold text-white"></h1>
+                </div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Main Description -->
+                <div class="md:col-span-2">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">About This Destination</h2>
+                        <p id="destination-description" class="text-gray-700 leading-relaxed text-lg"></p>
+                        
+                        <!-- Additional Info Section -->
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Travel Information</h3>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-blue-50 rounded-lg p-4">
+                                    <h4 class="font-semibold text-blue-900 mb-2">📍 Location</h4>
+                                    <p id="location-info" class="text-blue-800"></p>
+                                </div>
+                                <div class="bg-green-50 rounded-lg p-4">
+                                    <h4 class="font-semibold text-green-900 mb-2">🌟 Experience</h4>
+                                    <p class="text-green-800">Unforgettable memories await</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-6">
+                    <!-- Quick Facts -->
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Quick Facts</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Country:</span>
+                                <span id="country-fact" class="font-medium text-gray-900"></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Type:</span>
+                                <span class="font-medium text-gray-900">Travel Destination</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Status:</span>
+                                <span class="font-medium text-green-600">Available</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-sm p-6 text-white">
+                        <h3 class="text-xl font-bold mb-3">Ready to Visit?</h3>
+                        <p class="text-blue-100 mb-4">Start planning your adventure today!</p>
+                        <button class="w-full bg-white text-blue-600 font-semibold py-2 px-4 rounded-lg hover:bg-blue-50 transition-colors">
+                            <a href="index.html#contact">Plan Your Trip</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error State -->
+        <div id="error-content" class="hidden text-center py-12">
+            <div class="bg-red-50 rounded-lg p-8 max-w-md mx-auto">
+                <svg class="w-12 h-12 text-red-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <h2 class="text-xl font-bold text-red-900 mb-2">Destination Not Found</h2>
+                <p class="text-red-700 mb-4">The destination details could not be loaded.</p>
+                <button onclick="history.back()" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors">
+                    Go Back
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Function to load and display destination details
+        function loadDestinationDetails() {
+            const loading = document.getElementById('loading');
+            const content = document.getElementById('destination-content');
+            const errorContent = document.getElementById('error-content');
+
+            try {
+                // Get parameters from URL
+                const name = getUrlParameter('name');
+                const country = getUrlParameter('country');
+                const description = getUrlParameter('description');
+                const imageUrl = getUrlParameter('imageUrl');
+
+                // Check if we have the required data
+                if (!name || !country) {
+                    throw new Error('Missing required destination data');
+                }
+
+                // Hide loading and show content
+                loading.classList.add('hidden');
+                content.classList.remove('hidden');
+
+                // Populate the page with destination data
+                document.title = `${name} - Destination Details`;
+                document.getElementById('destination-title').textContent = name;
+                document.getElementById('country-badge').textContent = `📍 ${country}`;
+                document.getElementById('destination-description').textContent = description || 'No description available for this destination.';
+                document.getElementById('location-info').textContent = country;
+                document.getElementById('country-fact').textContent = country;
+
+                // Set hero image with fallback
+                const heroImage = document.getElementById('hero-image');
+                heroImage.src = imageUrl || 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=400&fit=crop';
+                heroImage.alt = name;
+                heroImage.onerror = function() {
+                    this.src = 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=400&fit=crop';
+                };
+
+            } catch (error) {
+                console.error('Error loading destination details:', error);
+                loading.classList.add('hidden');
+                errorContent.classList.remove('hidden');
+            }
+        }
+
+        // Load destination details when page loads
+        window.addEventListener('DOMContentLoaded', loadDestinationDetails);
+    </script>
+</body>
+</html>

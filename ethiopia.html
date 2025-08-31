@@ -234,7 +234,7 @@
                 <div class="lg:w-1/2">
                     <div class="package-card rounded-xl overflow-hidden shadow-xl h-96 w-full">
                         <div class="package-card-inner h-full">
-                            <div class="package-card-front h-full bg-cover bg-center" style="background-image: url('https://res.cloudinary.com/ddnpxgsan/image/upload/v1754499051/WhatsApp_Image_2025-08-05_at_7.15.05_PM_dyxek2.jpg')">
+                            <div class="package-card-front h-full bg-cover bg-center" style="background-image: url('./images/habesha.jpeg')">
                                 <div class="h-full bg-gradient-to-t from-black to-transparent flex items-end p-6">
                                     <div>
                                         <h3 class="text-3xl font-bold text-white">3 Days</h3>
@@ -361,7 +361,7 @@
                     </div>
                 </div>
                 <div class="lg:w-1/2">
-                    <h3 class="text-2xl md:text-3xl font-bold mb-4 text-secondary">9 Southern Ethiopia Cultural Expedition</h3>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 text-secondary">9 Days Southern Ethiopia Cultural Expedition</h3>
                     <p class="text-gray-700 mb-6">
                         Discover Ethiopia's most remote and culturally rich regions. Begin in Addis Ababa with visits to museums, markets, and mountain viewpoints. Journey through the Omo Valley to meet unique tribes including the Hamar, Dassanech, and Mursi. Witness the bull-jumping ceremony and explore the Kara tribe's river lifestyle. Conclude with an awe-inspiring adventure to the Danakil Depression, Lake Afdera, and the glowing lava lake of Erta Ale.
                     </p>
@@ -631,11 +631,11 @@
         
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
+                // backToTopButton.classList.remove('opacity-0', 'invisible');
+                // backToTopButton.classList.add('opacity-100', 'visible');
             } else {
-                backToTopButton.classList.remove('opacity-100', 'visible');
-                backToTopButton.classList.add('opacity-0', 'invisible');
+                // backToTopButton.classList.remove('opacity-100', 'visible');
+                // backToTopButton.classList.add('opacity-0', 'invisible');
             }
         });
         
@@ -671,26 +671,256 @@
         const dots = document.querySelectorAll('.carousel-dot');
         let currentIndex = 0;
         
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
+        // function showSlide(index) {
+        //     slides.forEach(slide => slide.classList.remove('active'));
+        //     dots.forEach(dot => dot.classList.remove('active'));
             
-            slides[index].classList.add('active');
-            dots[index].classList.add('active');
-            currentIndex = index;
-        }
+        //     slides[index].classList.add('active');
+        //     dots[index].classList.add('active');
+        //     currentIndex = index;
+        // }
         
         // Auto-rotate slides
-        setInterval(() => {
-            let nextIndex = (currentIndex + 1) % slides.length;
-            showSlide(nextIndex);
-        }, 5000);
+        // setInterval(() => {
+        //     let nextIndex = (currentIndex + 1) % slides.length;
+        //     showSlide(nextIndex);
+        // }, 5000);
         
         // Dot navigation
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                showSlide(parseInt(dot.dataset.index));
-            });
-        });
+        // dots.forEach(dot => {
+        //     dot.addEventListener('click', () => {
+        //         showSlide(parseInt(dot.dataset.index));
+        //     });
+        // });
     </script>
+
+    <script>
+        // Contact Form Handler
+    document.addEventListener('DOMContentLoaded', function() {
+    // Configuration - Update this URL to your actual backend endpoint
+    const BACKEND_URL = 'https://api.toursbyozone.com/email/send-tour-booking';
+    
+    // Get form elements
+    const form = document.querySelector('#contact form');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
+    const tourSelect = document.getElementById('tour');
+    const messageTextarea = document.getElementById('message');
+    
+    // Debug logging
+    console.log('Contact form found:', !!form);
+    console.log('Form elements found:', {
+        name: !!nameInput,
+        email: !!emailInput,
+        phone: !!phoneInput,
+        tour: !!tourSelect,
+        message: !!messageTextarea
+    });
+    
+    if (!form) {
+        console.error('Contact form not found. Please check the HTML structure.');
+        return;
+    }
+    
+    // Form submission handler
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        console.log('Contact form submitted');
+        
+        // Collect form data
+        const contactData = {
+            name: nameInput?.value.trim() || '',
+            email: emailInput?.value.trim() || '',
+            phone: phoneInput?.value.trim() || '',
+            to: "info@toursbyozone.com",
+            tourPackage: tourSelect.options[tourSelect.selectedIndex].text || '',
+            message: messageTextarea?.value.trim() || ''
+        };
+        
+        console.log('Collected contact data:', contactData);
+        
+        // Validate required fields
+        const validationErrors = validateContactData(contactData);
+        if (validationErrors.length > 0) {
+            console.log('Validation errors:', validationErrors);
+            showError('Please fill in all required fields:\n' + validationErrors.join('\n'));
+            return;
+        }
+        
+        // Show loading state
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        submitButton.textContent = 'Sending Message...';
+        submitButton.disabled = true;
+        
+        try {
+            console.log('Sending contact data to backend:', contactData);
+            
+            // Send data to backend
+            const response = await fetch(BACKEND_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(contactData)
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const result = await response.json();
+            console.log('Backend response:', result);
+            
+            // Handle successful submission
+            showSuccess('Your message has been sent successfully! We will get back to you within 24 hours.');
+            form.reset();
+            
+        } catch (error) {
+            console.error('Error sending message:', error);
+            showError('There was an error sending your message. Please try again or contact us directly at info@toursbyozone.com.');
+        } finally {
+            // Reset button state
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+        }
+    });
+    
+    // Validation function
+    function validateContactData(data) {
+        const errors = [];
+        
+        if (!data.name) {
+            errors.push('- Full name is required');
+        }
+        
+        if (!data.email) {
+            errors.push('- Email address is required');
+        } else if (!isValidEmail(data.email)) {
+            errors.push('- Please enter a valid email address');
+        }
+        
+        if (!data.phone) {
+            errors.push('- Phone number is required');
+        }
+        
+        if (!data.tourPackage) {
+            errors.push('- Please select a tour package');
+        }
+        
+        if (!data.message) {
+            errors.push('- Message is required');
+        }
+        
+        return errors;
+    }
+    
+    // Email validation helper
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+    
+    // Success message display
+    function showSuccess(message) {
+        removeMessages();
+        
+        const successDiv = document.createElement('div');
+        successDiv.className = 'alert alert-success bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6';
+        successDiv.innerHTML = `
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <p class="text-sm">${message}</p>
+                </div>
+            </div>
+        `;
+        
+        form.parentNode.insertBefore(successDiv, form);
+        
+        // Auto remove after 10 seconds
+        setTimeout(() => {
+            if (successDiv.parentNode) {
+                successDiv.parentNode.removeChild(successDiv);
+            }
+        }, 10000);
+    }
+    
+    // Error message display
+    function showError(message) {
+        removeMessages();
+        
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'alert alert-error bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6';
+        errorDiv.innerHTML = `
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <p class="text-sm whitespace-pre-line">${message}</p>
+                </div>
+            </div>
+        `;
+        
+        form.parentNode.insertBefore(errorDiv, form);
+        
+        // Auto remove after 15 seconds
+        setTimeout(() => {
+            if (errorDiv.parentNode) {
+                errorDiv.parentNode.removeChild(errorDiv);
+            }
+        }, 15000);
+    }
+    
+    // Remove existing messages
+    function removeMessages() {
+        const existingAlerts = form.parentNode.querySelectorAll('.alert');
+        existingAlerts.forEach(alert => {
+            if (alert.parentNode) {
+                alert.parentNode.removeChild(alert);
+            }
+        });
+    }
+});
+
+// Debug function to test form elements
+function debugContactForm() {
+    console.log('=== Contact Form Debug Info ===');
+    const form = document.querySelector('#contact form');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
+    const tourSelect = document.getElementById('tour');
+    const messageTextarea = document.getElementById('message');
+    
+    console.log('Form:', form);
+    console.log('Name input:', nameInput);
+    console.log('Email input:', emailInput);
+    console.log('Phone input:', phoneInput);
+    console.log('Tour select:', tourSelect);
+    console.log('Message textarea:', messageTextarea);
+    
+    // Test data collection
+    if (form) {
+        const testData = {
+            name: nameInput?.value || 'No value',
+            email: emailInput?.value || 'No value',
+            phone: phoneInput?.value || 'No value',
+            tourPackage: tourSelect?.value || 'No selection',
+            message: messageTextarea?.value || 'No value'
+        };
+        console.log('Current form values:', testData);
+    }
+}
+    </script>
+</body>
 </html>
