@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,14 +11,19 @@
     <nav class="bg-white shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex items-center justify-between">
-                <button  class="flex items-center text-blue-600 hover:text-blue-800 transition-colors">
-                    <a href="index.html#tours" class="flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                        </svg>
-                        Back Home
-                    </a>
-                </button>
+
+                <a href="index.html" class="flex items-center text-blue-600 hover:text-blue-800 transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                    <span>Back to Home</span>
+                </a>
+                <!-- <button class="flex items-center text-blue-600 hover:text-blue-800 transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                    Back to Destinations
+                </button> -->
                 <h1 class="text-2xl font-bold text-gray-900">Destination Details</h1>
                 <div></div> <!-- Spacer for flex layout -->
             </div>
@@ -50,7 +53,7 @@
             <!-- Content Grid -->
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Main Description -->
-                <div class="md:col-span-2">
+                <div class="md:col-span-2 space-y-6">
                     <div class="bg-white rounded-lg shadow-sm p-6">
                         <h2 class="text-2xl font-bold text-gray-900 mb-4">About This Destination</h2>
                         <p id="destination-description" class="text-gray-700 leading-relaxed text-lg"></p>
@@ -70,6 +73,14 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Tour Packages Section -->
+                    <div id="tour-packages-section" class="hidden bg-white rounded-lg shadow-sm p-6">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Available Tour Packages</h2>
+                        <div id="tour-packages-container" class="space-y-6">
+                            <!-- Tour packages will be inserted here -->
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Sidebar -->
@@ -87,6 +98,10 @@
                                 <span class="font-medium text-gray-900">Travel Destination</span>
                             </div>
                             <div class="flex justify-between">
+                                <span class="text-gray-600">Tour Packages:</span>
+                                <span id="package-count" class="font-medium text-blue-600">Loading...</span>
+                            </div>
+                            <div class="flex justify-between">
                                 <span class="text-gray-600">Status:</span>
                                 <span class="font-medium text-green-600">Available</span>
                             </div>
@@ -97,9 +112,12 @@
                     <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-sm p-6 text-white">
                         <h3 class="text-xl font-bold mb-3">Ready to Visit?</h3>
                         <p class="text-blue-100 mb-4">Start planning your adventure today!</p>
-                        <button class="w-full bg-white text-blue-600 font-semibold py-2 px-4 rounded-lg hover:bg-blue-50 transition-colors">
-                            <a href="index.html#contact">Plan Your Trip</a>
-                        </button>
+                        <a href="index.html#flights" class="inline-block mb-4 bg-white text-blue-600 font-semibold py-2 px-4 rounded-lg hover:bg-blue-50 transition-colors">
+                          <button class="w-full bg-white text-blue-600 font-semibold py-2 px-4 rounded-lg hover:bg-blue-50 transition-colors">
+                            Plan Your Trip
+                        </button>  
+                        </a>
+                        
                     </div>
                 </div>
             </div>
@@ -141,6 +159,20 @@
                 const country = getUrlParameter('country');
                 const description = getUrlParameter('description');
                 const imageUrl = getUrlParameter('imageUrl');
+                const tourPackagesParam = getUrlParameter('tourPackages');
+                
+                console.log('Tour packages param:', tourPackagesParam); // Debug log
+                
+                let tourPackages = [];
+                if (tourPackagesParam && tourPackagesParam !== 'undefined' && tourPackagesParam !== '') {
+                    try {
+                        tourPackages = JSON.parse(tourPackagesParam);
+                        console.log('Parsed tour packages:', tourPackages); // Debug log
+                    } catch (e) {
+                        console.warn('Failed to parse tour packages:', e);
+                        console.log('Raw tour packages param:', tourPackagesParam);
+                    }
+                }
 
                 // Check if we have the required data
                 if (!name || !country) {
@@ -158,6 +190,10 @@
                 document.getElementById('destination-description').textContent = description || 'No description available for this destination.';
                 document.getElementById('location-info').textContent = country;
                 document.getElementById('country-fact').textContent = country;
+                
+                // Update package count in sidebar
+                const packageCount = tourPackages ? tourPackages.length : 0;
+                document.getElementById('package-count').textContent = packageCount > 0 ? `${packageCount} available` : 'None available';
 
                 // Set hero image with fallback
                 const heroImage = document.getElementById('hero-image');
@@ -167,11 +203,124 @@
                     this.src = 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=400&fit=crop';
                 };
 
+                // Display tour packages if available
+                console.log('About to display packages, count:', packageCount); // Debug log
+                if (tourPackages && tourPackages.length > 0) {
+                    displayTourPackages(tourPackages);
+                } else {
+                    // Show no packages message
+                    const section = document.getElementById('tour-packages-section');
+                    const container = document.getElementById('tour-packages-container');
+                    section.classList.remove('hidden');
+                    container.innerHTML = `
+                        <div class="text-center py-8 text-gray-500">
+                            <svg class="w-12 h-12 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                            <p class="text-lg">No tour packages available for this destination</p>
+                            <p class="text-sm">Check back later for exciting tour options!</p>
+                        </div>
+                    `;
+                }
+
             } catch (error) {
                 console.error('Error loading destination details:', error);
                 loading.classList.add('hidden');
                 errorContent.classList.remove('hidden');
             }
+        }
+
+        // Function to display tour packages
+        function displayTourPackages(packages) {
+            const section = document.getElementById('tour-packages-section');
+            const container = document.getElementById('tour-packages-container');
+            
+            section.classList.remove('hidden');
+            container.innerHTML = '';
+            
+            packages.forEach((pkg, index) => {
+                const packageElement = document.createElement('div');
+                packageElement.className = 'border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow';
+                
+                packageElement.innerHTML = `
+                    <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
+                        <div class="lg:flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">${pkg.title || 'Untitled Package'}</h3>
+                            <p class="text-gray-600 mb-3">${pkg.description || 'No description available'}</p>
+                            <div class="flex items-center space-x-4 text-sm text-gray-500 mb-4">
+                                <span class="flex items-center">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    ${pkg.duration || 0} days
+                                </span>
+                                <span class="flex items-center">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                    ${pkg.itinerary?.length || 0} locations
+                                </span>
+                            </div>
+                        </div>
+                        <div class="lg:ml-6 lg:text-right">
+                            <div class="text-3xl font-bold text-green-600 mb-2">$ ${ pkg.price || 0}</div>
+                            <a href="index.html#contact" class="inline-block mb-4 bg-white text-blue-600 font-semibold py-2 px-4 rounded-lg hover:bg-blue-50 transition-colors">
+                                <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                Book Now
+                            </button>
+                            </a>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Highlights -->
+                    ${pkg.highlights && pkg.highlights.length > 0 ? `
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-900 mb-3">✨ Package Highlights</h4>
+                        <div class="grid sm:grid-cols-2 gap-2">
+                            ${pkg.highlights.map(highlight => `
+                                <div class="flex items-center text-sm text-gray-700">
+                                    <svg class="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    ${highlight}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>` : ''}
+
+                    <!-- Itinerary -->
+                    ${pkg.itinerary && pkg.itinerary.length > 0 ? `
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-900 mb-3">🗺️ Detailed Itinerary</h4>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="space-y-3">
+                                ${pkg.itinerary.map((item, idx) => `
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                                            ${idx + 1}
+                                        </div>
+                                        <div class="flex-1">
+                                            <h5 class="font-medium text-gray-900">${item}</h5>
+                                            <p class="text-sm text-gray-500">Explore and discover amazing experiences</p>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>` : ''}
+
+                    <!-- Package Image -->
+                    ${pkg.imageUrl ? `
+                    <div class="mt-4">
+                        <img src="${pkg.imageUrl}" alt="${pkg.title}" class="w-full h-48 object-cover rounded-lg" 
+                             onerror="this.style.display='none'">
+                    </div>` : ''}
+                `;
+                
+                container.appendChild(packageElement);
+            });
         }
 
         // Load destination details when page loads
